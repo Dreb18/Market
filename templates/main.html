@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg> -->
+      <img src="/static/img/carousel1.webp" class="bd-placeholder-img good-img" width="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+      <div class="container">
+        <div class="carousel-caption text-start">
+          <h1 style="font-weight: 700;">SUPER HERO STYLE</h1>
+          <p>PUMA x DC JUSTICE LEAGUE</p>
+          <p><a class="btn btn-lg btn-info" href="/search/q=PUMA%20x%20DC%20JUSTICE%20LEAGUE">Посмотреть</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg> -->
+      <img src="/static/img/carousel2.webp" class="bd-placeholder-img good-img" width="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+      <div class="container">
+        <div class="carousel-caption">
+          <h1 style="font-weight: 700;">THEY MOVE US</h1>
+          <p>PUMA x LIBERTY</p>
+          <p><a class="btn btn-lg btn-info" href="/search/q=PUMA%20x%20DC%20LIBERTY">Посмотреть</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg> -->
+      <img src="/static/img/carousel3.webp" class="bd-placeholder-img good-img" width="100%" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+      <div class="container">
+        <div class="carousel-caption text-end">
+          <h1 style="font-weight: 700;">INTO THE NIGHT</h1>
+          <p>PUMA x BATMAN</p>
+          <p><a class="btn btn-lg btn-info" href="/search/q=PUMA%20x%20DC%20BATMAN">Посмотреть</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class="album py-5 bg-light">
+  <h1 class="album-title">Популярное</h1>
+  <h1 class="album-title" style="text-align: right;"><a href="/popular" class="btn btn-link">смотреть все</a></h1>
+  <div class="card-row">
+  {% for card in cards %}  
+    <div>
+      <div class="card shadow-sm" style="width: 15rem; margin-right: 1em;">
+        <img src={{card[0]}} class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ card[2] }}</h5>
+          <p class="card-text">{{ card[1] }} <br> <small>{{ card[4] }}</small></p>
+          <div class="d-flex justify-content-between align-items-center">
+            <a href={{card[3]}} class="btn btn-sm btn-outline-secondary">Подробнее</a>
+            <button type="submit" class="btn send-card" value={{card[5]}}><ion-icon size="large" name="heart-outline"></ion-icon></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+  <h1 class="album-title">На основе просмотров</h1>
+  <h1 class="album-title" style="text-align: right;"><a href="/history" class="btn btn-link">смотреть все</a></h1>
+  <div class="card-row">
+    {% for card in historycards %}  
+    <div>
+      <div class="card shadow-sm" style="width: 15rem; margin-right: 1em;">
+        <img src={{card[0]}} class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ card[2] }}</h5>
+          <p class="card-text">{{ card[1] }} <br> <small>{{ card[4] }}</small></p>
+          <div class="d-flex justify-content-between align-items-center">
+            <a href={{card[3]}} class="btn btn-sm btn-outline-secondary">Подробнее</a>
+            <button type="submit" class="btn send-card" value={{card[5]}}><ion-icon size="large" name="heart-outline"></ion-icon></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+<script src="/static/js/main.js"></script>
+<script src="/static/js/AddFavorite.js"></script>
+{% endblock %}

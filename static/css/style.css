@@ -1,0 +1,390 @@
+body {
+  min-width: 1040px;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-family: FFDINforPuma, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #404040;
+  background-color: rgb(36, 36, 36);
+}
+
+.hidden {
+  display: none;
+}
+
+.btn-for-profile {
+  outline: none; /* Для синий ободки */
+  border: 0;
+  background: transparent;
+}
+
+.btn-for-profile:hover {
+  text-decoration: underline;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.page-header {
+  font-size: 1.3em;
+  min-height: 4em;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.page-header,
+.page-footer {
+  color: #404040;
+  background-color: rgb(36, 36, 36);
+}
+
+.dropbtn,
+.dropbtn:hover,
+.dropbtn:focus,
+.dropbtn:disabled {
+  text-decoration: none;
+  font-family: FFDINforPuma, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  color: #404040;
+  font-size: 1em;
+  margin-top: 0;
+  padding-top: 0;
+  box-shadow:0 0 0 0;
+}
+
+/* @media (min-device-aspect-ratio: 16/9) and (min-device-aspect-ratio: 16/10){
+  .page-header,
+  .page-footer {
+      color: #404040;
+      background-color: red;
+  }
+  } */
+
+.card-row {
+  display: flex;
+  width: auto;
+  margin: 0;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.product-page {
+  display: flex;
+  width: auto;
+  margin: 0;
+  flex-direction: row;
+}
+
+.radio-maker {
+  display: flex;
+  width: 18em;
+  margin: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* .card-row {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 0px;
+} */
+
+.computer-login {
+  width: 350px;
+}
+
+.computer-login-logo {
+  float: right;
+}
+
+.header-logo {
+  float: left;
+}
+
+.header-logo img {
+  width: 205px;
+  height: 55px;
+}
+
+.header-info {
+  float: left;
+}
+
+/* .good-img {
+  object-fit: cover;
+} */
+
+.left-info {
+  width: 20em;
+  min-height: 1040px;
+}
+
+.profile-content {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.login {
+  float: right;
+  margin-right: 1em;
+  margin-top: 0.2em;
+}
+
+.main-nav {
+  float: left;
+  margin: 0;
+  margin-top: 18px;
+  margin-left: 2em;
+  margin-right: 0.5em;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav li {
+  float: left;
+  margin-right: 50px;
+  text-transform: uppercase;
+}
+
+.main-nav li:last-child {
+  margin-right: 0;
+}
+
+.main-nav a {
+  color: #404040;
+  text-decoration: none;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
+}
+
+.main-nav a:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  margin-top: 2.95em;
+  margin-left: 0;
+  width: auto;
+  position: absolute;
+  background-color: rgb(36, 36, 36);
+  z-index: 1;
+  padding-right: 1em;
+}
+
+.dropdown-content-login {
+  display: none;
+  margin-top: 3.755em;
+  margin-left: 0;
+  width: 350px;
+  position: absolute;
+  background-color: rgb(36, 36, 36);
+  z-index: 1;
+  padding-right: 1em;
+}
+
+.dropdown-content-login h2 {
+  text-align: center;
+  line-height: 2em;
+}
+
+.dropdown-content-login a {
+  text-align: center;
+}
+
+.round {
+  width: 300px;
+  border-radius: 150px; /* Радиус скругления */
+ }
+
+.catalog-menu-3 {
+  width: 15em;
+}
+
+.catalog-menu-3 a,
+.catalog-menu-3 h4 {
+  white-space: nowrap;
+  padding: 0.1em;
+  text-transform: none;
+}
+
+.catalog-menu-3 a {
+  padding: 0.3em;
+  margin-left: 0.6em;
+  margin-right: 1.5em;
+  font-size: large;
+}
+
+.catalog-menu-2 a,
+.catalog-menu-2 h4 {
+  white-space: nowrap;
+  padding: 0.1em;
+  text-transform: none;
+}
+
+.catalog-menu-3 li {
+  line-height: 1.8em;
+}
+
+.catalog-menu {
+  padding: 1em;
+  color: #000000;
+  width: 40em;
+  text-transform: none;
+  line-height: 12px;
+}
+
+.catalog-menu-2 {
+  width: 10em;
+}
+
+.catalog-menu-2 a,
+.catalog-menu-2 h4 {
+  white-space: nowrap;
+  padding: 0.1em;
+  text-transform: none;
+}
+
+.catalog-menu-2 a {
+  padding: 0.3em;
+  margin-left: 0.6em;
+  font-size: large;
+}
+
+.catalog-menu-2 button {
+  margin-left: 0.9em;
+}
+
+.show {display:block;}
+
+.container-login {
+  padding: 2em;
+  padding-bottom: 10em;
+  width: 100%;
+  height: auto;
+  background-color: #ffffff;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.firstbtn {
+  display: inline-block;
+  min-width: 5em;
+  padding: 10px;
+  font: inherit;
+  vertical-align: top;
+  text-align: center;
+  color: #a38b70;
+  text-transform: uppercase;
+  text-decoration: none;
+  word-wrap: break-word;
+  border: 2px solid #a38b70;
+  border-radius: 2px;
+}
+
+.firstbtn:hover {
+  color: #8d745a;
+  border-color: #8d745a;
+}
+
+.firstbtn:active {
+  color: rgba(141, 116, 90, 0.3);
+  border-color: #8d745a;
+}
+
+.firstbtn-quick-order {
+  font-size: 0.6em;
+  margin-top: 6px;
+  color: #404040;
+  border-color: #404040;
+}
+
+.firstbtn-quick-order:hover {
+  color: #404040;
+  background-color: #d8d8d8;
+  border-color: #404040;
+}
+
+.firstbtn-quick-order:active {
+  color: rgba(64, 64, 64, 0.3);
+  background-color: #afafaf;;
+  border-color: #404040;
+}
+
+.album-title {
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 55px;
+  font-family: "Georgia", serif;
+  text-align: center;
+}
+
+.footer-copyright {
+  float: right;
+  width: 236px;
+  margin-top: 17px;
+  text-align: right;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.footer-copyright .heart {
+  display: inline-block;
+  width: 27px;
+  height: 24px;
+  font-size: 0;
+  vertical-align: middle;
+  background-image: url("../img/sprite.png");
+  background-repeat: no-repeat;
+  background-position: -5px -419px;
+}
+
+.footer-copyright a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-copyright a:hover {
+  text-decoration: underline;
+}
+
+.footer-copyright a:active {
+  color: rgba(255, 255, 255, 0.3);
+}
+  
+
+
+.b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, .1);
+  border: solid rgba(0, 0, 0, .15);
+  border-width: 1px 0;
+  box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+.bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+
+

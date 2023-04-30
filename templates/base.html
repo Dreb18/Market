@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ title }}</title>
+    <link href="/static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+  </head>
+  <body>
+    <div class="page-header">
+      <div class="header-top clearfix">
+        <div style="float: left;">
+          <a href="/"><img src="/static/img/logo3.png" alt="LOGO" height="100"></a>
+        </div>
+        <ul class="main-nav clearfix header-info" style="padding-top: 1em;">
+          <li>
+            <div class="dropdown">
+              <button onclick="myFunction()" class="btn btn-link dropbtn" id="catalog">Каталог</button>
+              <div class="dropdown-content bg-light" id="myDropdown" style="width: 1040px;">
+                <div class="catalog-menu bg-light">
+                  <div class="d-flex">
+                    <input class="form-control me-2 search-prod" value="" type="search" placeholder="Найти" aria-label="Search" style="width: 30em;">
+                    <button onclick="Search(0)" class="btn btn-outline-success btn-search-prod">Найти</button>
+                  </div>
+                  <h2 style="padding-top: 1em;">Одежда и обувь</h2>
+                  <ul class="main-nav clearfix bg-light catalog-menu-2" style="padding-top: 0.5em;">
+                    <li><h4>Женщинам</h4></li>
+                    <li><a href="/search/q=Платья и сарафаны">Платья и сарафаны</a></li>
+                    <li><a href="/search/q=Джемперы, свитеры">Джемперы, свитеры</a></li>
+                    <li><a href="/search/q=Верхняя одежда">Верхняя одежда</a></li>
+                    <li><a href="/search/q=Водолазки">Водолазки</a></li>
+                    <li><a href="/search/q=Блузки и рубашки">Блузки и рубашки</a></li>
+                    <li><a class="btn btn-link" href="/catalog"><small>Ещё<ion-icon name="arrow-down-outline"></ion-icon></small></a></li>
+                  </ul>
+                  <ul class="main-nav clearfix bg-light catalog-menu-2" style="padding-top: 0.5em;">
+                    <li><h4>Мужчинам</h4></li>
+                    <li><a href="/search/q=Верхняя одежда">Верхняя одежда</a></li>
+                    <li><a href="/search/q=Спортивная одежда">Спортивная одежда</a></li>
+                    <li><a href="/search/q=Свиттеры и кардиганы">Свиттеры и кардиганы</a></li>
+                    <li><a href="/search/q=Пуловеры и водолызки">Пуловеры и водолызки</a></li>
+                    <li><a href="/search/q=Футболки и майки">Футболки и майки</a></li>
+                    <li><a class="btn btn-link" href="/catalog"><small>Ещё<ion-icon name="arrow-down-outline"></ion-icon></small></a></li>
+                  </ul>
+                  <ul class="main-nav clearfix bg-light catalog-menu-2" style="padding-top: 0.5em;">
+                    <li><h4>Детям</h4></li>
+                    <li><a href="/search/q=Для девочек">Для девочек</a></li>
+                    <li><a href="/search/q=Для мальчиков">Для мальчиков</a></li>
+                    <li><a href="/search/q=Для малышей">Для малышей</a></li>
+                    <li><a href="/search/q=Обувь">Обувь</a></li>
+                    <li><a href="/search/q=Школьная одежда и обувь">Школьная одежда и обувь</a></li>
+                    <li><a class="btn btn-link" href="/catalog"><small>Ещё<ion-icon name="arrow-down-outline"></ion-icon></small></a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </li>
+          <li><a href="/help">Помощь</a></li>
+          <li><a href="/favorite">Избранное</a></li>
+        </ul>
+        {% if current_user.is_authenticated %}
+          <div class="login" style="padding-top: 1em; margin: 0;"> 
+            <div class="dropdown">
+              <button onclick="SettingsProfile()" style="border: none; padding: 0; background-color: rgb(36, 36, 36);" class="firstbtn btn-quick-order" id="login-logo"><ion-icon style="font-size: 64px;" name="person-circle-outline"></ion-icon></button>
+              <div class="dropdown-content-login bg-light" id="myDropdown2" style="padding: 0;">
+                <h2 style="padding: 1em; color: black; width: 100%; display: block;">{{ current_user.name }}</h2><br>
+                <div class="d-flex">
+                  <a class="firstbtn btn-quick-order" tabindex="1" style="margin-bottom: 1em; margin-left: 1em; margin-right: 1em; width: 100%; display: block;" href="/help" class="color: red;">Помощь</a>
+                </div>
+                <div class="d-flex">
+                  <a class="firstbtn btn-quick-order" tabindex="1" style="margin: 1em; width: 100%; display: block;" href="/favorite" class="color: red;">Избранное</a>
+                </div>
+                <div class="d-flex">
+                  <a class="firstbtn btn-quick-order" tabindex="1" style="margin: 1em; width: 100%; display: block;" href="/profile" class="color: red;">Профиль</a>
+                </div>
+                <div class="d-flex">
+                  <a class="firstbtn btn-quick-order" tabindex="1" style="margin: 1em; width: 100%; display: block;" href="/logout" class="color: red;">ВЫЙТИ</a>
+                </div>
+              </div>
+            </div>
+            
+          </div>  
+        {% else %}
+        <div style="padding-top: 1em; float: right; margin-right: 1em; margin-top: 0.2em;">
+          <a class="firstbtn btn-quick-order" href="/register">зарегистрироваться</a> 
+          <a class="firstbtn btn-quick-order" href="/login">Войти</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    
+    <main>
+      
+      {% block content %}{% endblock %}
+
+      <div class="container">
+          <footer class="py-5">
+              <div class="row">
+              <div class="col-2">
+                  <h5>Основное меню</h5>
+                  <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">Главная</a></li>
+                  <li class="nav-item mb-2"><a href="/help" class="nav-link p-0 text-muted">Помощь</a></li>
+                  <li class="nav-item mb-2"><a href="/favorite" class="nav-link p-0 text-muted">Избранное</a></li>
+                  </ul>
+              </div>
+          
+              <div class="col-2">
+                  <h5>Еще ссылки</h5>
+                  <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="/popular" class="nav-link p-0 text-muted">Популярное</a></li>
+                  <li class="nav-item mb-2"><a href="/history" class="nav-link p-0 text-muted">История</a></li>
+                  <li class="nav-item mb-2"><a href="/profile" class="nav-link p-0 text-muted">Профиль</a></li>
+                  </ul>
+              </div>
+          
+              <div class="col-2">
+                  <h5>Еще ссылки</h5>
+                  <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="/catalog" class="nav-link p-0 text-muted">Каталог</a></li>
+                    <li class="nav-item mb-2"><a href="/login" class="nav-link p-0 text-muted">Войти</a></li>
+                    <li class="nav-item mb-2"><a href="/register" class="nav-link p-0 text-muted">Зарегистрироваться</a></li>
+                  </ul>
+              </div>
+          
+              <div class="col-4 offset-1">
+                  <form>
+                  <h5>Subscribe to our newsletter</h5>
+                  <p>Monthly digest of whats new and exciting from us.</p>
+                  <div class="d-flex w-100 gap-2">
+                      <label for="newsletter1" class="visually-hidden">Email address</label>
+                      <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                      <button class="btn btn-primary" type="button">Subscribe</button>
+                  </div>
+                  </form>
+              </div>
+              </div>
+          
+              <div class="d-flex justify-content-between py-4 my-4 border-top">
+              <p>&copy; 2021 Company, Inc. All rights reserved.</p>
+              <ul class="list-unstyled d-flex">
+                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+                  <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+              </ul>
+              </div>
+          </footer>
+      </div>
+    </main>
+  </body>
+  <script src="/static/js/base.js"></script>
+  <script src="/static/js/SearchProduct.js"></script>
+  <script src="/static/assets/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</html>
+    

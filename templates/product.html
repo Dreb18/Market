@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="album py-5 bg-light" style="height: auto;">
+    <div class="catalog-menu bg-light" style="width: auto;">
+        <div class="product-page">
+            <div class="left-info">
+                <form action="" method="post">
+                    <h2 style="padding-top: 1em; text-align: center;">Одежда и обувь</h2>
+                    <h4 style="margin-top: 2em;">Бренд</h4>
+                    <input class="form-control me-2 brand-for-product" value="" type="search" placeholder="Бренд" aria-label="Search" style="width: 19em;">
+                    <div style="margin-top: 2em; width: 15em;">
+                        <h5>Размер</h5>
+                        <div class="radio-maker">
+                            {% set size = [38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64 ,66, 68, 70, 72, 74, 76, 78, 80] %}
+                            {% for s in size %}  
+                                <div style="margin-bottom: 1em; margin-left: 1em; margin-right: 1em;">
+                                    <input type="radio" id={{s}} name="size" value={{s}} class="radio-for-product">
+                                    <label for={{s}}>{{s}}</label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <h5>Цена, ₽</h5>
+                    <input class="form-control me-2, price-from-prod" value="300" type="search" placeholder="От" aria-label="Search" style="width: 8em; margin: 0; display: inline-block;">
+                    <input class="form-control me-2 price-to-prod" value="200000" type="search" placeholder="До" aria-label="Search" style="width: 8em; margin: 0; display: inline-block;">
+                </form>
+                <div class="radio-maker">
+                    <div style="margin: 1em;">
+                        <input type="radio" id="price-up" name="sort" style="margin-bottom: 1em;" value="price_asc" class="radio-sort-product">
+                        <label for="price-up" style="margin-bottom: 1em;">По возрастнию цены</label><br>
+                        <input type="radio" id="price-down" name="sort" value="price_desc" class="radio-sort-product">
+                        <label for="price-down">По убыванию цены</label>
+                    </div>
+                </div>
+                <button onclick="FindProduct()" class="btn btn-outline-success" type="submit" style="margin: auto; margin-top: 2em; display: block;">Найти</button>
+            </div>
+            {% if cards == "К сожалению, мы ничего не смогли найти" or cards == [] %}
+                <h1 class="album-title" style="color: black; font-size: 4em; margin-top: 3em;">К сожалению, мы ничего не смогли найти</h1>
+            {% else %}
+                <div class="card-row" style="min-width: 400px; flex-grow: 3;">
+                    {% for card in cards %}  
+                        <div>
+                        <div class="card shadow-sm" style="width: 15rem; margin-right: 1em;">
+                            <img src={{card[0]}} class="card-img-top" alt="...">
+                            <div class="card-body">
+                            <h5 class="card-title">{{ card[2] }}</h5>
+                            <p class="card-text">{{ card[1] }} <br> <small>{{ card[4] }}</small></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href={{card[3]}} class="btn btn-sm btn-outline-secondary">Подробнее</a>
+                                <button type="submit" class="btn send-card" value={{card[5]}}><ion-icon size="large" name="heart-outline"></ion-icon></button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script src="/static/js/AddFavorite.js"></script>
+<script src="/static/js/FindProduct.js"></script>
+{% endblock %}
